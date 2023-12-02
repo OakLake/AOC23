@@ -30,6 +30,8 @@ def get_first_and_last_nums(line: str) -> int:
                         first = WORD_TO_DIGIT[word_digit]
                         break
                 # STAGE 2 <
+            
+            left_p += 1
         
 
         if last is None:
@@ -43,8 +45,7 @@ def get_first_and_last_nums(line: str) -> int:
                         break
                 # STAGE 2 <
             
-        left_p += 1
-        right_p -= 1
+            right_p -= 1
 
 
 
