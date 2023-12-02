@@ -23,27 +23,25 @@ def get_first_and_last_nums(line: str) -> int:
         if first is None:
             if line[left_p].isnumeric():
                 first = line[left_p]
-                continue
-
-            # STAGE 2 >
-            for word_digit in WORD_TO_DIGIT:
-                if line[left_p:].startswith(word_digit):
-                    first = WORD_TO_DIGIT[word_digit]
-                    break
-            # STAGE 2 <
+            else:
+                # STAGE 2 >
+                for word_digit in WORD_TO_DIGIT:
+                    if line[left_p:].startswith(word_digit):
+                        first = WORD_TO_DIGIT[word_digit]
+                        break
+                # STAGE 2 <
         
 
         if last is None:
             if line[right_p].isnumeric():
                 last = line[right_p]
-                continue
-
-            # STAGE 2 >
-            for word_digit in WORD_TO_DIGIT:
-                if line[right_p:].startswith(word_digit):
-                    last = WORD_TO_DIGIT[word_digit]
-                    break
-            # STAGE 2 <
+            else:
+                # STAGE 2 >
+                for word_digit in WORD_TO_DIGIT:
+                    if line[right_p:].startswith(word_digit):
+                        last = WORD_TO_DIGIT[word_digit]
+                        break
+                # STAGE 2 <
             
         left_p += 1
         right_p -= 1
