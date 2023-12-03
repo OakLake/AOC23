@@ -1,6 +1,5 @@
-from typing import Tuple
 from collections import defaultdict
-
+from typing import Tuple
 
 RED_CUBES_NUM = 12
 GREEN_CUBES_NUM = 13

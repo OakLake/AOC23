@@ -1,6 +1,5 @@
 from typing import Optional
 
-
 WORD_TO_DIGIT = {
     "one": 1,
     "two": 2,
