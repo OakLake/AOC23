@@ -1,5 +1,6 @@
-from rich import print
 from collections import Counter
+
+from rich import print
 
 TEST_CASE = [
     "32T3K 765",
@@ -14,9 +15,10 @@ def alter_hand(hand):
     most_frequent_card = Counter(hand.replace("J", "")).most_common(1)[0][0]
     return hand.replace("J", most_frequent_card)
 
+
 def five_of_kind(hand):
     f = lambda x: set(x.count(card) for card in x) == {5}
-    return f(hand) or f(alter_hand(hand)) 
+    return f(hand) or f(alter_hand(hand))
 
 
 def four_of_kind(hand):
@@ -90,15 +92,9 @@ def main() -> None:
                 record.append((rank, hand, bid))
                 break
 
-    print(record)
-
-    # sorted_record = sorted(
-    #     record, key=lambda x: str(x[0]) + "".join(str(card_rank[c]) for c in x[1])
-    # )
     sorted_record = sorted(
-        record, key=lambda x: (x[0] , "".join(card_rank[c] for c in x[1]))
+        record, key=lambda x: (x[0], "".join(card_rank[c] for c in x[1]))
     )
-    print(sorted_record)
 
     ranked_hands = []
     for ix, record in enumerate(sorted_record):
@@ -107,12 +103,6 @@ def main() -> None:
     print("ranked_hands: ", ranked_hands)
 
     print(sum(r * int(b) for r, _, b in ranked_hands))
-    # 249661501 INCORRECT ANSWER
-    # 250232501 CORRECT
-
-
-    # 389104726 INCORRECT TOO HIGH
-    # 247910030 INCORRECT TOO LOW
 
 
 if __name__ == "__main__":
